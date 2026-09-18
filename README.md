@@ -1,21 +1,293 @@
-Web App Concept
-Concept and Unique Features
+# Restaurant Platform 🍽️
 
-The web app that I want to make is based around food delivery apps. It will have business and user accounts. The businesses will be able to upload their restaurants onto the platform and users will be able to view and order from them. The way this app will be unique from other food delivery apps and websites is that it will focus more on the businesses rather than the customers or users. For example, I would like to be able to add features such as sales statistics, a menu to add, edit or remove items, etc. Furthermore, I would like to advertise this web app towards smaller businesses or businesses that are just starting out. This would make these features more useful since they may not have their own menus, sales tactics or customer base already planned out or setup, so having software like this would probably be useful to them.
+**Full-stack restaurant platform built with React, Express and MongoDB.**
 
-Alternatives and Inspiration
+A web application designed to connect customers with small and independent restaurants through food ordering and business funding features. The platform supports separate customer and business functionality, allowing restaurant owners to manage their restaurants and menus while customers can browse, order and contribute donations.
 
-There are multiple food delivery apps out there such as Deliveroo and Uber Eats which are very consumer based however, I am unsure about the business side of these since I do not have my own restaurant.
+## 📸 Showcase
 
-Ideas and Approaches
+<!-- Add screenshots or a demo GIF here -->
 
-I have decided that I will also have a customer side to the app as well. This will allow users to view all the added restaurants as well as their menus. This could be expanded further with useful information such as delivery times, locations, etc. Furthermore, I have also considered the idea of developing a feature that would allow users to donate or fund the small businesses that are present on the platform. With this feature, it would help to drive the focus on the small business aspect and provide a way for the app to become more than just a food delivery app.
-Use of Data
+---
 
-My app will use an API to store data about the restaurants. For example, the name of the restaurant, the location, an image or logo. As well as this, there will be data for the menus such as images, names, descriptions and prices. Furthermore, some of the data will be for the users, such as their ID, their orders or baskets and their town or city so that the app wouldn’t show restaurants that are too far away.
+## 🚀 Overview
 
-Novel User Experience
-The novelty of this app will be to show useful data to the user’s about their business as well as help to give them recommendations or ways that they could think about their business that they may not have thought of before. As well as this, the opportunity to gain funding through user donations would be a unique feature that not many apps have, especially in the food delivery space.
+The Restaurant Platform was developed as a full-stack web application combining a React client with an Express/Node.js backend and MongoDB database.
 
-Target Audience
-The target audience for my app will primarily be small businesses that are looking to improve their sales or their reach to customers. As well as this, the target audience for this app will include businesses that do not already have a delivery service set up and want an easy platform to use. Furthermore, the app will help businesses looking for funding from users that wish to donate to them. Finally, customers who wish to order from small businesses near them or who wish to donate to them will also be a target audience for this app.
+The project focuses on two sides of the platform:
+
+* **Customers** can browse restaurants, view menus, add items to a basket and make donations.
+* **Businesses** can register as restaurant owners, create and manage their restaurants, and manage their menu items.
+
+The application was designed with smaller and independent businesses in mind, combining restaurant ordering with a funding feature that allows customers to support restaurants directly.
+
+---
+
+## ✨ Features
+
+### 👤 Customer Features
+
+* User account registration and authentication.
+* Browse available restaurants.
+* View individual restaurant information and menus.
+* Add menu items to a basket.
+* Manage items in the basket before ordering.
+* Support restaurants through donations.
+* View restaurant funding progress.
+* Persistent user session handling.
+
+### 🏪 Business Features
+
+* Register as a business account.
+* Create a restaurant profile.
+* Add restaurant information and images.
+* Edit restaurant details.
+* Delete restaurants owned by the account.
+* Add menu items with names and prices.
+* Edit and remove menu items.
+* Manage restaurant-specific data through the application.
+
+### 💰 Restaurant Funding
+
+A key feature of the application is the ability for customers to contribute towards restaurants.
+
+Each restaurant has:
+
+* A funding goal.
+* A current funding amount.
+* A visible funding progress state.
+* Donation functionality for customers.
+
+This adds a second purpose to the platform beyond traditional restaurant ordering and gives customers a way to directly support smaller businesses.
+
+---
+
+## 🧠 Technical Implementation
+
+### Full-Stack Architecture
+
+The application uses a separate frontend and backend structure.
+
+```text
+React Client
+     │
+     │ HTTP requests
+     ▼
+Express / Node.js API
+     │
+     │ MongoDB queries
+     ▼
+MongoDB Database
+```
+
+The frontend is responsible for the user interface and application state, while the Express server handles API requests, authentication, business logic and database operations.
+
+### REST API
+
+The backend exposes API routes for functionality such as:
+
+* User authentication
+* Restaurant creation and management
+* Menu management
+* Donations
+* Application data retrieval and updates
+
+The frontend communicates with these endpoints to create, retrieve, update and delete application data.
+
+### MongoDB
+
+MongoDB is used to persist application data including:
+
+* User accounts
+* Restaurant information
+* Menu items
+* Funding information
+* Other application state
+
+The database structure allows restaurant and user data to be associated with the relevant accounts.
+
+### Authentication & Sessions
+
+User authentication and session handling are implemented on the backend.
+
+The application distinguishes between standard users and business accounts so that restaurant-management functionality is available only to the appropriate users.
+
+API requests involving authenticated functionality use session credentials between the React client and Express server.
+
+### Image Uploads
+
+Restaurant images are handled through the backend using file upload functionality.
+
+Uploaded images are stored and associated with the relevant restaurant rather than requiring the frontend to manage image data directly.
+
+---
+
+## 🛠️ Technology Stack
+
+| Technology       | Purpose                                    |
+| ---------------- | ------------------------------------------ |
+| **React**        | Frontend user interface                    |
+| **JavaScript**   | Application logic                          |
+| **Express**      | Backend API framework                      |
+| **Node.js**      | Backend runtime                            |
+| **MongoDB**      | Database and persistent application data   |
+| **Multer**       | Handling image uploads                     |
+| **REST API**     | Communication between frontend and backend |
+| **HTML / CSS**   | Structure and styling                      |
+| **Git / GitHub** | Version control                            |
+
+---
+
+## 📁 Project Structure
+
+The repository separates the main parts of the application:
+
+```text
+CreativeWebApp/
+├── client/
+│   └── React frontend
+│
+├── server/
+│   └── Express / Node.js backend
+│
+├── views/
+│   └── Supporting application views
+│
+├── package.json
+├── package-lock.json
+└── README.md
+```
+
+The separation between client and server allows the frontend and backend responsibilities to remain independent and makes the application easier to develop and maintain.
+
+---
+
+## 🔄 Example Application Flow
+
+### Customer ordering
+
+```text
+User
+ │
+ ▼
+Browse Restaurants
+ │
+ ▼
+Select Restaurant
+ │
+ ▼
+View Menu
+ │
+ ▼
+Add Items to Basket
+ │
+ ▼
+Submit Order
+ │
+ ▼
+Backend API
+ │
+ ▼
+Database
+```
+
+### Business management
+
+```text
+Business User
+ │
+ ▼
+Sign In
+ │
+ ▼
+Create / Select Restaurant
+ │
+ ├── Edit Restaurant
+ ├── Manage Menu
+ ├── Add Menu Items
+ └── Remove Menu Items
+ │
+ ▼
+Express API
+ │
+ ▼
+MongoDB
+```
+
+---
+
+## 🔐 Data & Access Control
+
+The application separates customer and business functionality.
+
+Business users can manage restaurants associated with their account, while customers use the platform primarily to browse restaurants, interact with menus and support businesses.
+
+This required the application to keep track of the relationship between authenticated users and the restaurants they own.
+
+---
+
+## 🧪 Development & Testing
+
+Development involved testing the application across both frontend and backend functionality.
+
+Areas tested during development included:
+
+* User registration and authentication.
+* Customer and business account functionality.
+* Restaurant creation, editing and deletion.
+* Menu item management.
+* Basket functionality.
+* Donation functionality.
+* MongoDB data persistence.
+* API requests between the React client and Express server.
+* Image uploads.
+* Session handling.
+* Cross-origin requests between the frontend and backend.
+
+The application was developed iteratively using Git, allowing individual features and bug fixes to be tracked throughout development.
+
+---
+
+## 🎯 Project Goals
+
+The project was built to provide practical experience with:
+
+* Full-stack web application development.
+* React component-based interfaces.
+* REST API development.
+* Express backend architecture.
+* MongoDB database integration.
+* Authentication and session management.
+* CRUD operations.
+* File uploads.
+* Persistent application data.
+* Managing different user roles and permissions.
+* Connecting a frontend application to a backend API.
+
+---
+
+## 📚 What I Learned
+
+Developing this application provided practical experience with building and connecting the different layers of a full-stack application.
+
+Key areas of learning included:
+
+* Designing React components for a multi-feature application.
+* Building REST API endpoints with Express.
+* Connecting an application to MongoDB.
+* Managing authenticated sessions between a frontend and backend.
+* Implementing CRUD functionality.
+* Handling image uploads with a Node.js backend.
+* Managing application state between different user workflows.
+* Debugging frontend/backend integration issues.
+* Structuring a project into separate client and server responsibilities.
+
+---
+
+## 👨‍💻 Developer
+
+**Callum Candy**
+
+BSc (Hons) Creative Computing — Bath Spa University
+
+[GitHub](https://github.com/lolalolabob123)
